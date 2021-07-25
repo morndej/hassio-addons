@@ -6,6 +6,7 @@ FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION} as gobuild
 ARG GOLANG_VERSION
 ARG ALPINE_VERSION
 
+RUN echo -e "http://nl.alpinelinux.org/alpine/v3.13/main\nhttp://nl.alpinelinux.org/alpine/v3.13/community" > /etc/apk/repositories
 RUN apk add --no-cache git gcc build-base alpine-sdk; \
   go get -v github.com/cloudflare/cloudflared/cmd/cloudflared
 
